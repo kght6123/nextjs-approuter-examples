@@ -8,16 +8,18 @@ export default withAuth(
   {
     callbacks: {
       authorized: (nextauth) => {
-        console.log("authorized", nextauth, nextauth.req.url);
-        if (
-          nextauth.req.url.endsWith("/login") ||
-          nextauth.req.url.endsWith("/")
-        )
-          return true;
-        else if (!nextauth.token) return false;
-        else if (nextauth.req.url.endsWith("/admin"))
-          return nextauth.token?.role === "admin";
-        else return true;
+        return true;
+        //   console.log("authorized", nextauth, nextauth.req.url);
+        //   if (
+        //     nextauth.req.url.startsWith("/examples") ||
+        //     nextauth.req.url.endsWith("/login") ||
+        //     nextauth.req.url.endsWith("/")
+        //   )
+        //     return true;
+        //   else if (!nextauth.token) return false;
+        //   else if (nextauth.req.url.endsWith("/admin"))
+        //     return nextauth.token?.role === "admin";
+        //   else return true;
       },
     },
   }
